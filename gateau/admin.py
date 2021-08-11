@@ -10,7 +10,7 @@ class DessertAdmin(admin.ModelAdmin):
 
 @admin.register(Cafe)
 class CafeAdmin(admin.ModelAdmin):
-    list_display = ["pk", "dessert", "name", "scenery_image", "address"]
+    list_display = ["pk", "dessert", "name", "scenery", "address"]
 
 
 @admin.register(Video)
