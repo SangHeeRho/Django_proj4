@@ -15,15 +15,15 @@ class TimestampedModel(models.Model):
 
 # 주연배우
 class Dessert(TimestampedModel):
-    name = models.CharField(max_length=10, db_index=True)
+    name = models.CharField(max_length=50, db_index=True)
     photo = models.ImageField()
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "디저트"
-        verbose_name_plural = "디저트 종류"
+        verbose_name = "black sesame dessert"
+        verbose_name_plural = "black sesame desserts"
 
 
 class Cafe(TimestampedModel):
@@ -45,7 +45,7 @@ class Cafe(TimestampedModel):
 
 
 class Video(TimestampedModel):
-    cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
+    name = models.ForeignKey(Dessert, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     youtube_link = models.URLField()
 
@@ -69,7 +69,7 @@ class Video(TimestampedModel):
         return None
 
 
-class Review(TimestampedModel):
+class Recipe(TimestampedModel):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
-    message = models.TextField()
+    name = models.ForeignKey(Dessert, on_delete=models.CASCADE)
+    desc = models.TextField()

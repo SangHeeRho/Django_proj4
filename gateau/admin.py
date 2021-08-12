@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gateau.models import Dessert, Cafe, Review, Video
+from gateau.models import Dessert, Cafe, Video, Recipe
 
 
 @admin.register(Dessert)
@@ -15,9 +15,9 @@ class CafeAdmin(admin.ModelAdmin):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ["cafe", "title", "youtube_link"]
+    list_display = ["name", "title", "youtube_link"]
 
 
-@admin.register(Review)
-class ReviewAdmin(admin.ModelAdmin):
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
     pass

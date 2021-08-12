@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from gateau.models import Dessert, Cafe, Video, Recipe
+from django.http import HttpRequest, HttpResponse
 
-# Create your views here.
+
+def dessert_list(request):
+    qs = Dessert.objects.all()
+    return render(
+        request,
+        "gateau/dessert_list.html",
+        {
+            "dessert_list": qs,
+        },
+    )

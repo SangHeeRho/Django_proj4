@@ -1,0 +1,16 @@
+{% extends "gateau/layout.html" %}
+
+{% block content %}
+{{dessert_list}}
+<ul>
+    {% for dessert in dessert_list %}
+    <li>
+        <a href="/gateau/desserts/{{ dessert.pk }}/">
+            {{ dessert.name }}
+        </a>
+        <img src="{{ dessert.photo.url }}" style="width: 100px;" />
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
